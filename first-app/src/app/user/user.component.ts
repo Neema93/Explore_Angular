@@ -8,5 +8,10 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-selecteduser = DUMMY_USERS[randomIndex]
+  
+selecteduser = DUMMY_USERS[randomIndex];
+
+get imagePath() {
+  return '/asserts/users/' + this.selecteduser.avatar;
+}
 }
