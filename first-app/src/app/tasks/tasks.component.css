@@ -29,7 +29,7 @@
   menu button {
     font: inherit;
     cursor: pointer;
-    background-color: #9965dd;
+    background-color: #e7e0ee;
     border-radius: 4px;
     border: none;
     padding: 0.35rem 0.8rem;
@@ -38,7 +38,8 @@
   
   menu button:hover,
   menu button:active {
-    background-color: #a565dd;
+    background-color: #58555b;
+    color:#e7e0ee
   }
   
   ul {
