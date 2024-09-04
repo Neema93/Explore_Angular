@@ -12,6 +12,7 @@ button {
     width: 100%;
     min-width: 10rem;
     text-align: left;
+    border-radius: 0.5rem;
   }
   
   button:hover,
