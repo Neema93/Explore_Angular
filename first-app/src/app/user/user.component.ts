@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DUMMY_USERS } from '../dammy-user';
+
 import { type User } from './user.model';
-const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -18,7 +18,7 @@ get imagePath() {
   return '/asserts/users/' + this.user.avatar;
 }
 
-onSelectUser() {
-  this.select.emit(this.user.id);
-}
+  onSelectUser() {
+    this.select.emit(this.user.id);
+  }
 }
