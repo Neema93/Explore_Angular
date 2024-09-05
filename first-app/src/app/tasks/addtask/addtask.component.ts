@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
+import { type NewTaskData } from '../task/task.model';
 
 @Component({
   selector: 'app-addtask',
@@ -10,6 +11,7 @@ import { FormsModule, NgModel } from '@angular/forms';
 })
 export class AddtaskComponent {
   @Output() cancel = new EventEmitter<void>();
+  @Output() add = new EventEmitter<NewTaskData>();
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
@@ -18,7 +20,11 @@ export class AddtaskComponent {
     this.cancel.emit();
   }
   onSubmit() {
-  
+   this.add.emit({
+    title: this.enteredTitle,
+    summary:this.enteredSummary,
+    date:this.enteredDate
+   }) 
    
 }
 }
