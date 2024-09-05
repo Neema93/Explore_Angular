@@ -8,16 +8,15 @@ import { AddtaskComponent } from "./tasks/addtask/addtask.component";
 import { TaskComponent } from "./tasks/task/task.component";
 import { FormsModule } from "@angular/forms";
 import { SharedModule } from "./shared/shared.module";
+import { TasksModule } from "./tasks/tasks.module";
 
 @NgModule({
     declarations: [AppComponent,
                 HeaderComponent,
                 UserComponent, 
-                TasksComponent, 
-                TaskComponent,
-                 AddtaskComponent],
+               ],
     bootstrap:[AppComponent],
-    imports:[BrowserModule,FormsModule,SharedModule]
+    imports:[BrowserModule,FormsModule,SharedModule,TasksModule]
 
 })
 export class AppModule{
