@@ -1,13 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { AddtaskComponent } from './addtask/addtask.component';
-import {DUMMY_TASKS} from './dammy-task';
-import { TaskComponent } from './task/task.component';
-import {type NewTaskData } from './task/task.model';
+
 import { TaskService } from './tasks.service';
 @Component({
   selector: 'app-tasks',
-  standalone: true,
-  imports: [AddtaskComponent, TaskComponent],
+  
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
@@ -21,9 +17,7 @@ export class TasksComponent {
     return this.taskService.getUserTasks(this.userId);
   }
 
-  onCompleteTask(id: string){
-   this.taskService.removeTask(id);
-  }
+
 
   onStartAddTask(){
     this.isAddingTask =true;
