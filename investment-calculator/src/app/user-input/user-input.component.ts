@@ -25,10 +25,10 @@ export class UserInputComponent {
   constructor(private investmentService: InvestmentService){}
 onSubmit() {
   this.investmentService.calculateInvestmentResults({
-    initialInvestment: +this.enteredInitialInvestment,
-    duration: +this.enteredDuration,
-    expectedReturn: +this.enteredExpectedReturn,
-    annualInvestment: +this.enteredAnnualInvestment,
+    initialInvestment: +this.enteredInitialInvestment(),
+    duration: +this.enteredDuration(),
+    expectedReturn: +this.enteredExpectedReturn(),
+    annualInvestment: +this.enteredAnnualInvestment(),
   });
   this.enteredInitialInvestment.set('0');
   this.enteredAnnualInvestment.set('0');

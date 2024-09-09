@@ -14,13 +14,6 @@ import { InvestmentInput } from './investment-input.model';
 })
 export class AppComponent {
   title = 'investment-calculator';
-  resultsData?: {
-    year: number,
-    interest: number,
-    valueEndOfYear: number,
-    annualInvestment: number,
-    totalInterest: number,
-    totalAmountInvested: number,
-  }[];
+ 
   
 }
