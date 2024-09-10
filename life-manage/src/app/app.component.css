@@ -1,0 +1,27 @@
+img{
+    border-radius: 50%;
+    width: 4rem;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+menu{
+    display: flex;
+    flex-direction: raw;
+    gap: 1rem;
+    float: right;
+}
+.container{
+    display: flex;
+    flex-direction: raw;
+    gap: 0.25rem;
+}
+article{
+    width: 300px;
+    border: 15px solid none;
+    padding: 50px;
+    margin: 20px;
+    background-color: aliceblue;
+    color: black;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+
+}
