@@ -1,0 +1,11 @@
+img{
+    border-radius: 50%;
+    width: 4rem;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+menu{
+    display: flex;
+    flex-direction: raw;
+    gap: 1rem;
+    float: right;
+}
