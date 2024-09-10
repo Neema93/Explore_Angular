@@ -1,20 +1,21 @@
 <main>
     <app-header />
     <div class="dashbord">
-        <div class="dashbord-item">
+        
+        <app-dashbord-item  [image]="imageIndecision" title="Indecision">
 
             <app-indecision />
 
-        </div>
-        <div class="dashbord-item">
+        </app-dashbord-item>
+        <app-dashbord-item  [image]="imageCooking" title="Cooking decision">
 
             <app-cooking-decision />
 
-        </div>
-        <div class="dashbord-item">
+        </app-dashbord-item>
+        <app-dashbord-item  [image]="imageIdea" title="New Ideas">
 
             <app-new-ideas />
 
-        </div>
+        </app-dashbord-item>
     </div>
 </main>

@@ -1,0 +1,16 @@
+img{
+    border-radius: 50%;
+    width: 2rem;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+}
+.dashbord-item{
+    width: 300px;
+    border: 15px solid none;
+    padding: 50px;
+    margin: 20px;
+    background-color: aliceblue;
+    color: black;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+
+}
