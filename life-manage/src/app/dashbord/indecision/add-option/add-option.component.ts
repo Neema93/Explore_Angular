@@ -17,7 +17,7 @@ export class AddOptionComponent {
   private optionService = inject(OptionsService)
   onSubmit(){
     this.optionService.addOption({
-     option:this.enteredOption
+      option:this.enteredOption
      });
   
   }

@@ -1,5 +1,8 @@
 <ul>
-    <li>work for job</li>
-    <li>Cooking</li>
-    <li>watching</li>
-</ul>
+    @for(option of setlectedOptions; track option.id){
+        
+    <li>
+        <app-option [option]="option" />
+    </li>
+}
+   </ul>

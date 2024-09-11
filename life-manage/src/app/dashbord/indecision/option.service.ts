@@ -1,7 +1,5 @@
 import { Injectable } from "@angular/core";
 import { NewOptionData } from "./option/option.model";
-
-
 @Injectable({providedIn: 'root'})
 export class OptionsService {
     options= [{
@@ -14,13 +12,14 @@ export class OptionsService {
     }
 ];
     constructor(){
-        const tasks = localStorage.getItem('options');
-        if(tasks){
-            this.options= JSON.parse(tasks);
+        const options = localStorage.getItem('options');
+        if(options){
+            this.options= JSON.parse(options);
         }
     }
-  
-
+    getOptions() {
+        return this.options
+    }
     addOption(optionData:NewOptionData ) {
         this.options.unshift({
             id: new Date().getTime().toString(),
