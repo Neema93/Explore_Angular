@@ -5,18 +5,20 @@ import { OptionsService } from './option.service';
 import { OptionsComponent } from "./options/options.component";
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-indecision',
   standalone: true,
-  imports: [DashbordItemComponent, AddOptionComponent, OptionsComponent,CommonModule],
+  imports: [DashbordItemComponent, AddOptionComponent, OptionsComponent, CommonModule,],
   templateUrl: './indecision.component.html',
   styleUrl: './indecision.component.css'
 })
 export class IndecisionComponent {
-  
+  isDisabled: boolean = false;
   constructor(private optionsService: OptionsService){}
-  get seletctOption(){
+  get selectOption(){
     console.log(this.optionsService.getRandomOption())
+    this.isDisabled =this.isDisabled ? false : true;
     return this.optionsService.getRandomOption().option
 
   }

@@ -12,7 +12,7 @@ import { NewOptionData } from '../option/option.model';
   styleUrl: './add-option.component.css'
 })
 export class AddOptionComponent {
-  @Output() add = new EventEmitter<NewOptionData>();
+  // @Output() add = new EventEmitter<NewOptionData>();
   enteredOption = '';
   private optionService = inject(OptionsService)
   onSubmit(){
