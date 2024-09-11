@@ -13,7 +13,7 @@ export class OptionsComponent {
 
   constructor(private optionsService: OptionsService){}
   get setlectedOptions(){
-    console.log(this.optionsService.getOptions())
+   
     return this.optionsService.getOptions();
   
   }

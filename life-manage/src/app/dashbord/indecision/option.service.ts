@@ -31,9 +31,9 @@ export class OptionsService {
         this.options = this.options.filter((option)=> option.id !== id);
         this.saveOption();
     }
-    getRandomOption(options: string[]): string {
-        const randomIndex = Math.floor(Math.random() * options.length);
-        return options[randomIndex];
+    getRandomOption() {
+        const randomIndex = Math.floor(Math.random() * this.options.length);
+        return this.options[randomIndex];
       }
     private saveOption() {
         localStorage.setItem('options',JSON.stringify(this.options));
