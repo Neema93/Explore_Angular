@@ -21,18 +21,22 @@ export class OptionsService {
     }
   
 
-    addTask(optionData:NewOptionData ) {
+    addOption(optionData:NewOptionData ) {
         this.options.unshift({
             id: new Date().getTime().toString(),
             option:optionData.option
           }) 
-          this.saveTasks();
+          this.saveOption();
     }
-    removeTask(id: string) {
+    removeOption(id: string) {
         this.options = this.options.filter((option)=> option.id !== id);
-        this.saveTasks();
+        this.saveOption();
     }
-    private saveTasks() {
+    getRandomOption(options: string[]): string {
+        const randomIndex = Math.floor(Math.random() * options.length);
+        return options[randomIndex];
+      }
+    private saveOption() {
         localStorage.setItem('options',JSON.stringify(this.options));
     }
 }

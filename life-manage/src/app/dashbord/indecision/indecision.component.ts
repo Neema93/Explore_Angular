@@ -12,5 +12,4 @@ import { OptionsService } from './option.service';
 })
 export class IndecisionComponent {
  
-
 }
