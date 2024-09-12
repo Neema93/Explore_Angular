@@ -15,12 +15,18 @@ import { CommonModule } from '@angular/common';
 })
 export class IndecisionComponent {
   isDisabled: boolean = false;
+ 
   constructor(private optionsService: OptionsService){}
+ 
   get selectOption(){
     console.log(this.optionsService.getRandomOption())
+  
     this.isDisabled =this.isDisabled ? false : true;
+    
     return this.optionsService.getRandomOption().option
 
   }
- 
+  
 }
+
+

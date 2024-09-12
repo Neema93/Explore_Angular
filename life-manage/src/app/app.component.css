@@ -1,6 +1,7 @@
 
 .dashbord{
     display: flex;
-    flex-direction: raw;
-    gap: 0.25rem;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
 }
