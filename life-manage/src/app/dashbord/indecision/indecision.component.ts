@@ -23,20 +23,25 @@ export class IndecisionComponent {
   constructor(private optionsService: OptionsService) {}
 
   selectOption() {
-    if (!this.isDisabled) {
+  
+
       const randomOption = this.optionsService.getRandomOption();
       if (randomOption) {
-        console.log(randomOption);
-
+        console.log(randomOption );
+       
         this.selectedOption = randomOption.option;
         this.isDisabled = true; 
       } else {
+        this.selectedOption = null; 
+        this.isDisabled = true; 
         console.error('No options available'); 
+     
       }
-    }
+      
   }
   resetSelection() {
     this.isDisabled = false; 
     this.selectedOption = null; 
   }
+ 
 }

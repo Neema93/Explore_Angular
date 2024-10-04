@@ -1,4 +1,5 @@
 <form (ngSubmit)="onSubmit()">
-<input  type="text" name="option" id="option" [(ngModel)]="enteredOption"/>
+<input  type="text" name="option" id="option" [(ngModel)]="enteredOption"  required />
 <button type="submit" appButton>Add Option</button>
 </form>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>

@@ -2,12 +2,13 @@
   <div>
  
   
-        <button (click)="selectOption()"> What should I do? </button>
+        <button (click)="selectOption()" [disabled]="isDisabled"> What should I do? </button>
+        <button (click)="resetSelection()" *ngIf="isDisabled">Reset Selection</button>
         <!-- <app-desicion [option]="seletctOption" /> -->
         <p *ngIf="isDisabled; else prompt">
             {{ selectedOption }}
         </p>
-       
+        <p *ngIf="!isDisabled">No option selected yet.</p>
           <ng-template #prompt>
          <p></p>
           </ng-template>
@@ -20,4 +21,5 @@
     <div>
       <app-add-option   />
     </div>
+  
 </article>
