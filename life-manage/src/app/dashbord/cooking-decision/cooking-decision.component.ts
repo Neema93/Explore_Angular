@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { AddOptionComponent } from "../cooking-decision/add-option/add-option.component";
+import { AddListComponent } from "./add-list/add-list.component";
+
 
 @Component({
   selector: 'app-cooking-decision',
   standalone: true,
-  imports: [AddOptionComponent],
+  imports: [AddListComponent],
   templateUrl: './cooking-decision.component.html',
   styleUrl: './cooking-decision.component.css'
 })
