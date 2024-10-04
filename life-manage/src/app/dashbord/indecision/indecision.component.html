@@ -2,10 +2,10 @@
   <div>
  
   
-        <button (click)="selectOption"> What should I do? </button>
+        <button (click)="selectOption()"> What should I do? </button>
         <!-- <app-desicion [option]="seletctOption" /> -->
         <p *ngIf="isDisabled; else prompt">
-            {{selectOption }}
+            {{ selectedOption }}
         </p>
        
           <ng-template #prompt>
