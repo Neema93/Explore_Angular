@@ -10,11 +10,12 @@ import { LifecycleComponent } from './lifecycle/lifecycle.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'lifeCycle';
+  
+  lifecycleComponentIsVisible =false;
   onToggleLifecycle(){
 
   }
   onChangeLifecycle(){
-    
+
   }
 }
