@@ -1,5 +1,5 @@
 import { Component, DestroyRef, effect, inject, OnInit, signal } from '@angular/core';
-import { toObservable } from '@angular/core/rxjs-interop';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
 import { interval, map, Subscription } from 'rxjs';
 
@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
   title = 'rxjs';
   clickCount = signal(0);
   clickCount$ = toObservable(this.clickCount)
+  interval$ = interval(1000);
+  intervalSignal = toSignal(this.interval$);
   private destroyRef = inject(DestroyRef);
 
   constructor(){
@@ -34,7 +36,7 @@ export class AppComponent implements OnInit {
     //   subscription.unsubscribe();
     // });
     const subscription = this.clickCount$.subscribe({
-      next: (val) => console.log(`click button ${this.clickCount} times`)
+      next: (val) => console.log(`click button ${this.clickCount()} times`)
     })
      this.destroyRef.onDestroy(() => {
       subscription.unsubscribe();
