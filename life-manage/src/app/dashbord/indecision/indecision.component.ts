@@ -21,27 +21,26 @@ export class IndecisionComponent {
   isDisabled: boolean = false;
   selectedOption: string | null = null;
   constructor(private optionsService: OptionsService) {}
-
-  selectOption() {
   
+  ngOnInit() {
+    this.checkOptionsAvailability();
+  }
 
+  checkOptionsAvailability() {
+    const options = this.optionsService.getOptions();
+    if(!options || options.length === 0){
+      this.isDisabled = true
+    } else {
+      this.isDisabled = false
+    }
+    // Disable if no options are available
+  }
+  selectOption() {
       const randomOption = this.optionsService.getRandomOption();
       if (randomOption) {
         console.log(randomOption );
-       
+        this.isDisabled = false
         this.selectedOption = randomOption.option;
-        this.isDisabled = true; 
-      } else {
-        this.selectedOption = null; 
-        this.isDisabled = true; 
-        console.error('No options available'); 
-     
-      }
-      
+      } 
   }
-  resetSelection() {
-    this.isDisabled = false; 
-    this.selectedOption = null; 
-  }
- 
 }

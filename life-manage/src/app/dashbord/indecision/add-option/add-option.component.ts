@@ -27,7 +27,6 @@ export class AddOptionComponent {
         option:this.enteredOption
        });
       console.log('Submitted:', this.enteredOption);
-      // Reset the input if necessary
       this.enteredOption = '';
     }
    
