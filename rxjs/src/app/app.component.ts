@@ -7,22 +7,25 @@ import { interval, map, Subscription } from 'rxjs';
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
   title = 'rxjs';
   clickCount = signal(0);
   private destroyRef = inject(DestroyRef);
   ngOnInit(): void {
-      const subscription = interval(1000).pipe(
-        map((val) => val * 2)
-      ).subscribe({
-        next: (val) => console.log(val)
+    const subscription = interval(1000)
+      .pipe(map((val) => val * 2))
+      .subscribe({
+        next: (val) => console.log(val),
       });
-  
-  this.destroyRef.onDestroy (() => {
-    subscription.unsubscribe();
-  })
-}
 
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    });
+  }
+  onClick() {
+    this.clickCount.update(prevCount => prevCount + 1)
+   
+  }
 }
