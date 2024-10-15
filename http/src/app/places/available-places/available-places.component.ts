@@ -32,7 +32,7 @@ error =signal('');
           this.places.set(places);
         },
         error: (error) =>{
-          this.error.set(error)
+          this.error.set(error.message)
         },
         complete: () => {
           this.isFetching.set(false);
