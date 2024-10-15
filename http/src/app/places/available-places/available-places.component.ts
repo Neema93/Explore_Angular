@@ -1,11 +1,13 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
-import { Place } from '../../place.model';
+import { Place } from '../place.model';
 import { HttpClient } from '@angular/common/http';
-
+import { map } from 'rxjs';
+import { PlacesContainerComponent } from "../places-container/places-container.component";
+import { PlacesComponent } from "../places.component";
 @Component({
   selector: 'app-available-places',
   standalone: true,
-  imports: [],
+  imports: [PlacesContainerComponent, PlacesComponent],
   templateUrl: './available-places.component.html',
   styleUrl: './available-places.component.css',
 })
@@ -13,17 +15,21 @@ export class AvailablePlacesComponent implements OnInit {
   places = signal<Place[] | undefined>(undefined);
   private httpClient = inject(HttpClient);
   private destroyRef = inject(DestroyRef);
+
+  // constructor(private httpClient: HttpClient) {}
+
   ngOnInit() {
     const subscription = this.httpClient
-      .get<{ places: Place[] }>('http://localhost:3000/places',{
-        observe: 'response'
-      })
+      .get<{ places: Place[] }>('http://localhost:3000/places')
+      .pipe(
+        map((resData) => resData.places)
+      )
       .subscribe({
-        next: (response) => {
-          console.log(response)
-          console.log(response.body?.places);
+        next: (places) => {
+          this.places.set(places);
         },
       });
+
     this.destroyRef.onDestroy(() => {
       subscription.unsubscribe();
     });

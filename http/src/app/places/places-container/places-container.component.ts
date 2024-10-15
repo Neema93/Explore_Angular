@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-places-container',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './places-container.component.css'
 })
 export class PlacesContainerComponent {
-
+  title = input.required<string>();
 }
