@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Place } from '../../place.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-available-places',
@@ -10,4 +11,5 @@ import { Place } from '../../place.model';
 })
 export class AvailablePlacesComponent {
   places = signal<Place[] | undefined>(undefined);
+  private httpClient = inject(HttpClient);
 }
