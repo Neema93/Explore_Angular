@@ -16,6 +16,8 @@ export class AvailablePlacesComponent implements OnInit {
   private httpClient = inject(HttpClient);
   private destroyRef = inject(DestroyRef);
 isFetching = signal(false);
+error =signal('');
+
   // constructor(private httpClient: HttpClient) {}
 
   ngOnInit() {
@@ -28,6 +30,9 @@ isFetching = signal(false);
       .subscribe({
         next: (places) => {
           this.places.set(places);
+        },
+        error: (error) =>{
+          this.error.set(error)
         },
         complete: () => {
           this.isFetching.set(false);
