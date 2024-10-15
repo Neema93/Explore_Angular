@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { Place } from '../../place.model';
 
 @Component({
   selector: 'app-available-places',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './available-places.component.css'
 })
 export class AvailablePlacesComponent {
-
+  places = signal<Place[] | undefined>(undefined);
 }
