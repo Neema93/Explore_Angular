@@ -1,3 +1,7 @@
+@if(error()){
+  <app-error-modal title="An error occured!" [message]="error()"/>
+}
+
 <header>
 
   <h1>PlacePicker</h1>
