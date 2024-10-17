@@ -12,14 +12,12 @@ import { PlacesComponent } from '../places.component';
   styleUrl: './available-places.component.css',
 })
 export class AvailablePlacesComponent implements OnInit {
+
   places = signal<Place[] | undefined>(undefined);
   private httpClient = inject(HttpClient);
   private destroyRef = inject(DestroyRef);
   isFetching = signal(false);
   error = signal('');
-
-  // constructor(private httpClient: HttpClient) {}
-
   ngOnInit() {
     this.isFetching.set(true);
     const subscription = this.httpClient
@@ -34,8 +32,7 @@ export class AvailablePlacesComponent implements OnInit {
                 'Something went wrong fetching the available places. Plese try again later '
               )
           );
-  })
-
+        })
       )
       .subscribe({
         next: (places) => {
@@ -52,5 +49,14 @@ export class AvailablePlacesComponent implements OnInit {
     this.destroyRef.onDestroy(() => {
       subscription.unsubscribe();
     });
+  }
+  onSelectPlace(selectedPlace: Place) {
+    this.httpClient
+      .put('http://localhost:3000/user-places', {
+        placeId: selectedPlace.id,
+      })
+      .subscribe({
+        next: (resData) => console.log(resData),
+      });
   }
 }
