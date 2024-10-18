@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { JsonPipe } from '@angular/common';
+import { afterNextRender, Component, DestroyRef, inject, viewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +11,17 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  private form = viewChild.required<NgForm>('form');
+  private destoryRef = inject(DestroyRef);
+  constructor(){
+    afterNextRender(() => {
+     const subscription = this.form().valueChanges?.subscribe({
+        next:(value) => window.localStorage.setItem('saved-login-form', JSON.stringify({email:value.email})),
+      });
+   
+    this.destoryRef.onDestroy(() => subscription?.unsubscribe());
+  })
+  }
   onSubmit(formData: NgForm) {
     if(formData.form.invalid){
         return;
