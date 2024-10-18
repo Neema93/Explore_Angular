@@ -1,4 +1,4 @@
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <h1>Login</h1>
 
     <label for="email">EMAIL</label>
@@ -6,6 +6,6 @@
 
     <label for="password">PASSWORD</label>
     <input type="password" id="password" name="password" ngModel/>
-    
+
     <button >Login</button>
 </form>
