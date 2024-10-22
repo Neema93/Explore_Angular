@@ -1,7 +1,11 @@
 <div >
-    <label for="email">Email</label>
-    <input type="email" name="email"/>
-    <label for="password">Password</label>
-    <input type="password" name="password" />
-    <button>Login</button>
+    <form #authform="ngForm" (ngSubmit)="onSubmit(authform)"> 
+    <label for="email">Email</label><br/>
+    <input type="email" name="email" id="email" ngModel email required/><br/>
+    <label for="password">Password</label><br/>
+    <input type="password" name="password" id="password" ngModel required minlength="6"/><br/>
+    <button type="submit" [disabled]="!authform.valid">{{ isLoginMode ? 'Login' : 'Sign up' }}</button> |
+    <button (click)="onSwitchMode()" type="button"> Switch to {{ isLoginMode ? 'Sign up' : 'Login' }}</button>
+    </form>
+
 </div>
