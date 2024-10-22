@@ -63,6 +63,15 @@ export class LoginComponent implements OnInit{
     );
   }
 ngOnInit(){
+const savedForm = window.localStorage.getItem('saved-login-form');
+if(savedForm){
+  const loddedForm = JSON.parse(savedForm);
+  this.form.patchValue({
+    email: loddedForm.email
+  });
+}
+
+
   const subscription =this.form.valueChanges.pipe(debounceTime(500)).subscribe({
     next: value => {
       window.localStorage.setItem('saved-login-form', JSON.stringify({email:value.email}))
