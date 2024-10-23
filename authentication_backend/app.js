@@ -5,11 +5,15 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Connect to MongoDB
-connectDB();
 
+try {
+  connectDB(); // Assuming this is your database connection function
+} catch (error) {
+  console.error('Database connection failed:', error);
+}
 // Middleware
 app.use(express.json());
 
