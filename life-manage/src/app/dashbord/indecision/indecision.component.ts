@@ -39,7 +39,7 @@ export class IndecisionComponent {
       const randomOption = this.optionsService.getRandomOption();
       if (randomOption) {
         console.log(randomOption );
-        this.isDisabled = false
+
         this.selectedOption = randomOption.option;
       } 
   }
