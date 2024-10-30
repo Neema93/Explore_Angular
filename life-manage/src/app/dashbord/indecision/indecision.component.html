@@ -1,24 +1,19 @@
 <article>
   <div>
- 
-  
-        <button (click)="selectOption()" [disabled]="isDisabled"> What should I do? </button>
-   
-        <p *ngIf=" selectedOption; else prompt">
-            {{ selectedOption }}
-        </p>
-        <p *ngIf="!selectedOption" class="error">No option selected yet.</p>
-          <ng-template #prompt>
-         <p></p>
-          </ng-template>
+    <button (click)="selectOption()" [disabled]="isDisabled"> What should I do? </button>
+    <p *ngIf=" selectedOption; else prompt">
+      {{ selectedOption }}
+    </p>
 
-    </div>
-    <div>
-        <h3>Your option</h3>
-      <app-options />
-    </div>
-    <div>
-      <app-add-option   />
-    </div>
-  
+    <ng-template #prompt>
+      <p class="error">No option selected yet.</p>
+    </ng-template>
+  </div>
+  <div>
+    <h3>Your option</h3>
+    <app-options />
+  </div>
+  <div>
+    <app-add-option />
+  </div>
 </article>
