@@ -1,9 +1,12 @@
 <header>
     <img src="asserts/time.png" />
     <menu>
-        <a>Home</a>
-        <a>Management</a>
+        <a routerLink="/indecision">Indecision</a>
+    <a routerLink="/cooking-list">Cooking-list</a>
+    <a routerLink="/new-ideas">New-ideas</a>
         <button appButton>Logout <span class="icon">-></span></button>
     </menu>
 
 </header>
+
+<router-outlet></router-outlet>
