@@ -7,8 +7,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-option',
-  standalone: true,
-  imports: [ButtonComponent,FormsModule,CommonModule,],
   templateUrl: './add-option.component.html',
   styleUrl: './add-option.component.css'
 })

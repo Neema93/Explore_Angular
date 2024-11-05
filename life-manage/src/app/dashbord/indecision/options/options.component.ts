@@ -4,8 +4,6 @@ import { OptionComponent } from "../option/option.component";
 
 @Component({
   selector: 'app-options',
-  standalone: true,
-  imports: [OptionComponent],
   templateUrl: './options.component.html',
   styleUrl: './options.component.css'
 })
